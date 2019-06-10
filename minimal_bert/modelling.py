@@ -29,7 +29,7 @@ def train_and_return_model(X_train, X_test, y_train, y_test, n_hidden):
     model.compile(
         loss='binary_crossentropy',
         optimizer=adam,
-        metrics=['accuracy', keras_metrics.precision(), keras_metrics.recall()]
+        metrics=['accuracy', keras_metrics.precision(), keras_metrics.recall()],
     )
 
     # Run Model
@@ -39,7 +39,8 @@ def train_and_return_model(X_train, X_test, y_train, y_test, n_hidden):
         batch_size=200,
         epochs=10000,
         callbacks=[es],
-        validation_data=(X_test, y_test)
+        validation_data=(X_test, y_test),
+        verbose=0
     )
     return model, history
 
