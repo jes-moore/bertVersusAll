@@ -33,3 +33,7 @@ def extract_validation_results(history):
     prec = history.history['val_precision'][-1]
     rec = history.history['val_recall'][-1]
     return loss, acc, prec, rec
+
+
+def calc_f1(prec, rec):
+    return (2 * prec * rec) / (prec + rec)
